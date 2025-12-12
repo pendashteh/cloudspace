@@ -1,0 +1,36 @@
+{
+  "name": "CloudSpace Desktop",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": true,
+      "upgradePackages": true
+    }
+  },
+
+  "forwardPorts": [5901],
+  
+  "portsAttributes": {
+    "5901": {
+      "label": "VNC Desktop",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "postCreateCommand": "echo '✨ CloudSpace Desktop ready! Run: bash setup.sh'",
+
+  "remoteUser": "vscode",
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.remote-explorer"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
